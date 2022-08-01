@@ -131,7 +131,7 @@ main.contenedor-iframe {
 }
 
 .iframe .contenido-textos {
-    width: 48%;
+    width: 60%;
 }
 
 .contenido-textos h3 {
@@ -201,6 +201,11 @@ medidas de graficos
 */
 /*Images left*/
 
+.grafics-right {
+    float: right;
+    width: 1050px;
+    height: 550px;
+}
 
 .grafics-left {
     float: left;
