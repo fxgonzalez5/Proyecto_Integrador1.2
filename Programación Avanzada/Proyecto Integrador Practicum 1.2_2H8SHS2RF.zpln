@@ -1,0 +1,1283 @@
+{
+  "paragraphs": [
+    {
+      "title": "Se selecciona la Base de Datos a usar",
+      "text": "%mysql\nUSE CATASTROTURISTICO",
+      "user": "anonymous",
+      "dateUpdated": "2022-07-31 20:55:36.747",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Query executed successfully. Affected rows : 0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1658447591439_1410735872",
+      "id": "paragraph_1658447591439_1410735872",
+      "dateCreated": "2022-07-21 23:53:11.439",
+      "dateStarted": "2022-07-31 20:45:41.821",
+      "dateFinished": "2022-07-31 20:45:41.928",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Corrección de errores",
+      "text": "%mysql\nUPDATE lugarturistico SET longitud \u003d -78.219132 WHERE codigo \u003d \u0027LT050\u0027;\nUPDATE lugarturistico SET longitud \u003d -79.9648543 WHERE codigo \u003d \u0027LT062\u0027;\nUPDATE lugarturistico SET  latitud \u003d -2.8779359, longitud \u003d -77.6835661 WHERE codigo \u003d \u0027LT069\u0027;\nUPDATE lugarturistico SET  latitud \u003d -0.4998642, longitud \u003d -78.5403810 WHERE codigo \u003d \u0027LT091\u0027;",
+      "user": "anonymous",
+      "dateUpdated": "2022-07-31 20:56:00.455",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Query executed successfully. Affected rows : 1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1658852058830_804668490",
+      "id": "paragraph_1658852058830_804668490",
+      "dateCreated": "2022-07-26 11:14:18.830",
+      "dateStarted": "2022-07-26 11:37:41.926",
+      "dateFinished": "2022-07-26 11:37:41.959",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Numero de comercios por zona de planificación",
+      "text": "%mysql\nSELECT concat(\"Zona de planificación \", pr.zona) \"Zona de Planificación\", COUNT(*) \"Numero de Comercios\" FROM Comercio c\nINNER JOIN Parroquia p ON p.codParroquia \u003d c.codParroquia\nINNER JOIN Canton ca ON p.codCanton \u003d ca.codCanton\nINNER JOIN Provincia pr ON pr.codProvincia \u003d ca.codProvincia\nGROUP BY pr.zona\nORDER BY pr.zona;",
+      "user": "anonymous",
+      "dateUpdated": "2022-07-31 21:21:01.160",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 472.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "zona": "string",
+                      "Numero de Comercios": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "pieChart": {}
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Zona de Planificación",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "Numero de Comercios",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Zona de Planificación\tNumero de Comercios\nZona de planificación 1\t1497\nZona de planificación 2\t6925\nZona de planificación 3\t2529\nZona de planificación 4\t1932\nZona de planificación 5\t4905\nZona de planificación 6\t2933\nZona de planificación 7\t1488\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1658448154139_1113234358",
+      "id": "paragraph_1658448154139_1113234358",
+      "dateCreated": "2022-07-22 00:02:34.139",
+      "dateStarted": "2022-07-31 21:20:20.930",
+      "dateFinished": "2022-07-31 21:20:20.996",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Total de ventas por provincia",
+      "text": "%mysql\nSELECT pr.nombre, SUM(ca.ventas) \"Total de Ventas\" FROM Comercio c\nINNER JOIN Parroquia p ON p.codParroquia \u003d c.codParroquia\nINNER JOIN Canton ca ON p.codCanton \u003d ca.codCanton\nINNER JOIN Provincia pr ON pr.codProvincia \u003d ca.codProvincia\nGROUP BY pr.nombre\nORDER BY SUM(ca.ventas) DESC;",
+      "user": "anonymous",
+      "dateUpdated": "2022-07-31 21:25:32.264",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 454.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "nombre": "string",
+                      "Total de Ventas": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "nombre",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "Total de Ventas",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "nombre\tTotal de Ventas\nGUAYAS\t14150285588652.65\nPICHINCHA\t12032757347694.55\nEL ORO\t416972253656.48\nMANABÍ\t284381461386.44\nAZUAY\t189213414801.89\nCOTOPAXI\t91332400510.44\nSANTO DOMINGO DE LOS TSÁCHILAS\t85011662838.96\nTUNGURAHUA\t80000537124.70\nLOS RÍOS\t44322545832.03\nSANTA ELENA\t42951145937.43\nESMERALDAS\t17662259257.89\nIMBABURA\t17492763234.99\nCHIMBORAZO\t13482817765.46\nLOJA\t7292620722.77\nCAÑAR\t4529371187.43\nBOLÍVAR\t3392328897.81\nNAPO\t3257527542.43\nSUCUMBÍOS\t2747386958.21\nGALÁPAGOS\t2742346653.82\nCARCHI\t2421578550.37\nORELLANA\t1790662817.01\nMORONA SANTIAGO\t1016674973.45\nPASTAZA\t989259996.30\nZAMORA CHINCHIPE\t161788806.35\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1658449540268_1216783967",
+      "id": "paragraph_1658449540268_1216783967",
+      "dateCreated": "2022-07-22 00:25:40.269",
+      "dateStarted": "2022-07-31 20:56:42.103",
+      "dateFinished": "2022-07-31 20:56:43.295",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Cantidad de ventas por canton.",
+      "text": "%mysql\nSELECT ca.nombre, SUM(ca.ventas) \"Total de Ventas\" FROM Comercio c\nINNER JOIN Parroquia p ON p.codParroquia \u003d c.codParroquia\nINNER JOIN Canton ca ON p.codCanton \u003d ca.codCanton\nGROUP BY ca.nombre\nORDER BY SUM(ca.ventas) DESC;",
+      "user": "anonymous",
+      "dateUpdated": "2022-07-31 21:22:48.323",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 1426.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "nombre": "string",
+                      "Total de Ventas": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "nombre",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "Total de Ventas",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "nombre\tTotal de Ventas\nGUAYAQUIL\t13848183607658.28\nQUITO\t11935951283817.00\nMACHALA\t383310750560.22\nMANTA\t234510775974.88\nCUENCA\t186972030937.09\nSAMBORONDÓN\t186384979518.28\nDURÁN\t100766756139.76\nSANTO DOMINGO\t85011662838.96\nLATACUNGA\t82951187406.50\nAMBATO\t75803795013.40\nCAYAMBE\t56914594187.58\nSANTA ELENA\t38798909717.97\nQUEVEDO\t34912888274.16\nPORTOVIEJO\t29727434140.04\nMEJÍA\t18854143240.15\nIBARRA\t14205203986.49\nRUMIÑAHUI\t13367138255.79\nSUCRE\t13047955280.66\nRIOBAMBA\t12783850280.37\nESMERALDAS\t10464122333.04\nSANTA ROSA\t9062181986.52\nLA MANÁ\t7695428507.68\nPEDRO MONCAYO\t7670188194.03\nARENILLAS\t6157896385.34\nLOJA\t5998476189.86\nDAULE\t5867815782.95\nPASAJE\t5681492039.70\nBABAHOYO\t5431563008.28\nNARANJAL\t5357603217.90\nHUAQUILLAS\t4863053600.37\nEL GUABO\t4731668531.52\nMONTECRISTI\t4554295391.70\nSALINAS\t4152236219.46\nSAN LORENZO\t3637300812.20\nGUARANDA\t3320020671.75\nTENA\t2982091023.66\nQUININDÉ\t2671980133.24\nPIÑAS\t2655075544.56\nVENTANAS\t2274090956.20\nPLAYAS\t2271030801.20\nLA TRONCAL\t2196021962.70\nBAÑOS DE AGUA SANTA\t1934417906.60\nGUALACEO\t1930519081.71\nSANTA CRUZ\t1747287183.08\nCOTACACHI\t1612134053.30\nTULCÁN\t1485067004.25\nSAN PEDRO DE PELILEO\t1432322677.93\nLAGO AGRIO\t1410383813.75\nSHUSHUFINDI\t1289164068.71\nCAÑAR\t1215092095.23\nOTAVALO\t1157138474.94\nORELLANA\t995781229.65\nAZOGUES\t991680325.46\nPASTAZA\t936993304.32\nSAN CRISTÓBAL\t857703958.24\nJIPIJAPA\t796465774.74\nLA JOYA DE LOS SACHAS\t790278002.52\nMORONA\t779977462.80\nBOLÍVAR\t752874597.84\nBUENA FE\t713580282.54\nCATAMAYO\t674604046.73\nSANTIAGO DE PÍLLARO\t584724335.80\nJUNÍN\t498437120.94\nCHONE\t488243445.12\nVÍNCES\t423829273.14\nMUISNE\t414527024.91\nEL EMPALME\t391303643.00\nALAUSÍ\t369722759.07\nSANTA ANA\t366674191.05\nMONTALVO\t355638475.40\nPUJILÍ\t328126848.32\nSALCEDO\t319457848.60\nGUANO\t303652486.72\nATACAMES\t295392464.64\nMACARÁ\t291575068.50\nANTONIO ANTE\t283088756.94\nBALSAS\t272336675.40\nNARANJITO\t243649924.50\nSAN MIGUEL DE URCUQUÍ\t226369404.80\nSAN JACINTO DE YAGUACHI\t209994783.36\nPATATE\t207678386.52\nPALORA\t200046840.15\nQUIJOS\t199238513.64\nELOY ALFARO\t172476485.10\nZAPOTILLO\t163168411.92\nPAUTE\t153731330.80\nTOSAGUA\t140549935.32\nISABELA\t137355512.50\nBABA\t127895027.10\nMONTÚFAR\t121875739.20\nBALAO\t113093418.39\nBIBLIÁN\t109844082.88\nGENERAL ANTONIO ELIZALDE\t109429363.19\nMILAGRO\t95166899.99\nEL CARMEN\t92902016.69\nPEDRO CARBO\t92364296.22\nPUEBLOVIEJO\t83060535.21\nZARUMA\t80541345.04\nATAHUALPA\t80312989.06\nCAMILO PONCE ENRÍQUEZ\t79630119.40\nBALZAR\t78623158.53\nYANTZAZA\t78347753.28\nESPEJO\t74907633.84\nZAMORA\t72052855.60\nPEDERNALES\t66162334.72\nMARCABELÍ\t64147819.45\nCELICA\t52268684.40\nMERA\t52266691.98\nSANTA LUCÍA\t45407343.97\nSANTA ISABEL\t44898998.95\nPINDAL\t44481918.90\nPUTUMAYO\t41957955.20\nEL CHACO\t39562685.28\nARCHIDONA\t36043042.75\nPUERTO LÓPEZ\t28132889.04\nCHIMBO\t28124630.24\nPUYANGO\t24843454.40\nNOBOL\t24520915.34\nSALITRE (URBINA JADO)\t21863766.03\nECHEANDÍA\t20519071.10\nFLAVIO ALFARO\t20253296.36\nSAQUISILÍ\t18773701.92\nCORONEL MARCELINO MARIDUEÑA\t16910201.78\nEL TAMBO\t16732721.16\nCEVALLOS\t15618218.70\nSIGSIG\t15530951.36\nMIRA\t15132662.48\nSUCÚA\t14985362.40\nPAJÁN\t14900507.94\nMOCHA\t12427697.28\nPANGUA\t12395115.06\nSAN MIGUEL\t12192999.66\nSARAGURO\t11974954.50\nALFREDO BAQUERIZO MORENO (JUJAN)\t11467819.98\nLAS LAJAS\t11291500.20\nGUALAQUIZA\t11225587.22\nPALLATANGA\t10597612.86\nPALTAS\t9482510.94\nPIMAMPIRO\t8828558.52\nCALVAS\t8471355.01\nCHILLANES\t8166083.00\nNABÓN\t7983141.32\nCHINCHIPE\t7437172.80\nLIMÓN INDANZA\t7134981.34\nSIGCHOS\t7031082.36\nCHAGUARPAMBA\t6684106.80\nLA CONCORDIA\t6460004.76\nTISALEO\t4978148.13\nGONZALO PIZARRO\t4858376.25\nGUAMOTE\t4820664.48\nCHORDELEG\t4726436.52\nQUERO\t4574740.34\nLORETO\t4529454.99\nGONZANAMÁ\t4403945.82\nCOLTA\t3586446.22\nCHAMBO\t3557412.87\nLAS NAVES\t3305442.06\nSANTIAGO\t3097157.40\nGIRÓN\t2925184.00\nEL PANGUI\t2907478.52\nPENIPE\t2684797.72\nSOZORANGA\t2139269.79\nPORTOVELO\t1504679.10\nNANGARITZA\t1043546.15\nSUCUMBÍOS\t1022744.30\nSAN FERNANDO\t671918.38\nCARLOS JULIO AROSEMENA TOLA\t592277.10\nOÑA\t507617.20\nCHUNCHI\t345305.15\nPUCARÁ\t259074.45\nHUAMBOYA\t207582.14\nAGUARICO\t74129.85\nOLMEDO\t46805.20\nEL PAN\t10.71\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1658450167060_1562052826",
+      "id": "paragraph_1658450167060_1562052826",
+      "dateCreated": "2022-07-22 00:36:07.060",
+      "dateStarted": "2022-07-31 21:22:48.336",
+      "dateFinished": "2022-07-31 21:22:48.851",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Cantidad de tipos de establecimientos turísticos",
+      "text": "%mysql\nSELECT t.contenido AS \"Categoría\", t.actividad, count(*) AS \"Numero de comercios\" FROM Comercio c\nINNER JOIN TipoComercio t ON t.codigo \u003d c.tipo\nGROUP BY t.contenido, t.actividad\nORDER BY count(*) DESC;",
+      "user": "anonymous",
+      "dateUpdated": "2022-07-31 21:23:03.157",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 712.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Categoría": "string",
+                      "actividad": "string",
+                      "Numero de comercios": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default",
+                  "stacked": true
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "actividad",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [
+                {
+                  "name": "Categoría",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "values": [
+                {
+                  "name": "Numero de comercios",
+                  "index": 2.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Categoría\tactividad\tNumero de comercios\nRestaurante\tAlimentos y bebidas\t8934\nHostal\tAlojamiento\t2311\nFuente de soda\tAlimentos y bebidas\t2030\nCafetería\tAlimentos y bebidas\t1532\nHotel\tAlojamiento\t1159\nBar\tAlimentos y bebidas\t1080\nOperador turístico\tOperación e intermediación\t1072\nAgencia de viajes dual\tOperación e intermediación\t898\nDiscoteca\tAlimentos y bebidas\t562\nHostería\tAlojamiento\t494\nAgencia de viajes internacional\tOperación e intermediación\t371\nTransporte terrestre\tTransporte turístico\t311\nSala de recepciones y banquetes\tIntermediación\t273\nTermas y balnearios\tParques de atracción estable\t226\nCasa de huéspedes\tAlojamiento\t201\nTransporte maritimo y fluvial\tTransporte turístico\t192\nAgencia de viajes mayorista\tOperación e intermediación\t134\nLodge\tAlojamiento\t67\nEstablecimiento móvil\tAlimentos y bebidas\t64\nTransporte aéreo\tTransporte turístico\t59\nCentro de recreación turística\tIntermediación\t43\nCentro de turismo comunitario\tCentro de turismo comunitario\t39\nCampamento turístico\tAlojamiento\t28\nHacienda turística\tAlojamiento\t27\nRefugio\tAlojamiento\t22\nSala de baile\tIntermediación\t16\nPeña\tIntermediación\t15\nOrganizadores de eventos, congresos y convenciones\tIntermediación\t12\nCentro de convenciones\tIntermediación\t9\nPlazas de comida\tAlimentos y bebidas\t7\nResort\tAlojamiento\t7\nServicio de catering\tAlimentos y bebidas\t5\nBolera\tParques de atracción estable\t3\nPension\tAlojamiento\t3\nHostal residencia\tAlojamiento\t1\nPista de patinaje\tParques de atracción estable\t1\nCabaña\tAlojamiento\t1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1658763886676_787283276",
+      "id": "paragraph_1658763886676_787283276",
+      "dateCreated": "2022-07-25 15:44:46.676",
+      "dateStarted": "2022-07-26 11:13:04.591",
+      "dateFinished": "2022-07-26 11:13:04.692",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Población Masculina, Femenina y Total de las provincias del Ecuador.",
+      "text": "%mysql\nSELECT nombre, poblMasculina \"Población Masculina\", poblFemenina \"Población Femenina\" FROM Provincia ORDER BY poblTotal DESC;",
+      "user": "anonymous",
+      "dateUpdated": "2022-07-31 21:23:08.925",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 678.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "nombre": "string",
+                      "poblMasculina": "string",
+                      "poblFemenina": "string",
+                      "poblTotal": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default",
+                  "stacked": true
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "nombre",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "Población Masculina",
+                  "index": 1.0,
+                  "aggr": "sum"
+                },
+                {
+                  "name": "Población Femenina",
+                  "index": 2.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "nombre\tPoblación Masculina\tPoblación Femenina\nGUAYAS\t2172363\t2215071\nPICHINCHA\t1575219\t1653014\nMANABÍ\t780879\t781200\nLOS RÍOS\t467390\t454373\nAZUAY\t422235\t459159\nEL ORO\t361682\t354069\nESMERALDAS\t324702\t318952\nTUNGURAHUA\t286383\t304217\nCHIMBORAZO\t250803\t273201\nLOJA\t256819\t264335\nCOTOPAXI\t237706\t251010\nIMBABURA\t232206\t244051\nSANTO DOMINGO DE LOS TSÁCHILAS\t227857\t230723\nSANTA ELENA\t204096\t197082\nCAÑAR\t134355\t147041\nSUCUMBÍOS\t120977\t109526\nBOLÍVAR\t102429\t107504\nMORONA SANTIAGO\t101172\t95363\nCARCHI\t92767\t94102\nORELLANA\t85620\t75718\nNAPO\t68075\t65630\nZAMORA CHINCHIPE\t63038\t57378\nPASTAZA\t58321\t55881\nZONAS NO DELIMITADAS\t21887\t20020\nGALÁPAGOS\t16956\t16086\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1659318593834_275271648",
+      "id": "paragraph_1659318593834_275271648",
+      "dateCreated": "2022-07-31 20:49:53.834",
+      "dateStarted": "2022-07-31 21:10:41.772",
+      "dateFinished": "2022-07-31 21:10:41.813",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Cantidad de lugares turísticos por provincia y tipo",
+      "text": "%mysql\nSELECT pr.nombre, t.nombre \"Tipos de lugares turísticos\", count(*) \"Total de Lugares Turísticos\" FROM lugarturistico l\nINNER JOIN Canton ca ON l.codCanton \u003d ca.codCanton\nINNER JOIN Provincia pr ON pr.codProvincia \u003d ca.codProvincia\nINNER JOIN tipolugarturistico t ON t.codigo \u003d l.tipo\nGROUP BY pr.nombre, t.nombre\nORDER BY count(*) DESC;",
+      "user": "anonymous",
+      "dateUpdated": "2022-07-31 20:59:06.891",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 344.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "nombre": "string",
+                      "Tipos de lugares turísticos": "string",
+                      "Total de Lugares Turísticos": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default",
+                  "stacked": true
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "nombre",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [
+                {
+                  "name": "Tipos de lugares turísticos",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ],
+              "values": [
+                {
+                  "name": "Total de Lugares Turísticos",
+                  "index": 2.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "nombre\tTipos de lugares turísticos\tTotal de Lugares Turísticos\nGALÁPAGOS\tIsla\t5\nPICHINCHA\tAtractivo Turistico\t3\nIMBABURA\tAtractivo Turistico\t3\nCHIMBORAZO\tLaguna\t3\nMANABÍ\tPlaya\t3\nSANTA ELENA\tPlaya\t3\nMORONA SANTIAGO\tCueva\t2\nZAMORA CHINCHIPE\tCascada\t2\nSANTO DOMINGO DE LOS TSÁCHILAS\tAtractivo Turistico\t2\nTUNGURAHUA\tAtractivo Turistico\t2\nIMBABURA\tLaguna\t2\nSUCUMBÍOS\tLaguna\t2\nAZUAY\tParque\t2\nGUAYAS\tParque\t2\nLOJA\tParque\t2\nESMERALDAS\tPlaya\t2\nMORONA SANTIAGO\tRio\t2\nNAPO\tAtractivo Turistico\t1\nPASTAZA\tAtractivo Turistico\t1\nSANTA ELENA\tAcuario\t1\nZAMORA CHINCHIPE\tAtractivo Turistico\t1\nEL ORO\tBalneario\t1\nPASTAZA\tBalneario\t1\nAZUAY\tBalneario\t1\nSANTO DOMINGO DE LOS TSÁCHILAS\tBosque\t1\nAZUAY\tCasacada\t1\nPASTAZA\tCasacada\t1\nMORONA SANTIAGO\tCascada\t1\nNAPO\tCascada\t1\nORELLANA\tCascada\t1\nPICHINCHA\tCascada\t1\nNAPO\tCaverna\t1\nCARCHI\tCementerio\t1\nEL ORO\tCerro\t1\nCAÑAR\tComplejo Arqueologico \t1\nAZUAY\tIglesia\t1\nBOLÍVAR\tIglesia\t1\nCHIMBORAZO\tIglesia\t1\nLOJA\tIglesia\t1\nEL ORO\tIsla\t1\nESMERALDAS\tLago\t1\nCAÑAR\tLaguna\t1\nCARCHI\tLaguna\t1\nCOTOPAXI\tLaguna\t1\nCAÑAR\tIglesia\t1\nBOLÍVAR\tMontaña\t1\nCHIMBORAZO\tMontaña\t1\nCAÑAR\tMuseo\t1\nGUAYAS\tMuseo\t1\nORELLANA\tMuseo\t1\nSANTA ELENA\tMuseo\t1\nEL ORO\tArchipielago\t1\nBOLÍVAR\tAtractivo Turistico\t1\nEL ORO\tAtractivo Turistico\t1\nMANABÍ\tParque\t1\nSANTO DOMINGO DE LOS TSÁCHILAS\tParque\t1\nTUNGURAHUA\tParque\t1\nPASTAZA\tParque Acuatico\t1\nCOTOPAXI\tParque Nacional\t1\nLOJA\tParque Nacional\t1\nNAPO\tParque Nacional\t1\nSUCUMBÍOS\tParque Nacional\t1\nPICHINCHA\tParque Nacional\t1\nGUAYAS\tAtractivo Turistico\t1\nLOS RÍOS\tPlaya\t1\nLOJA\tAtractivo Turistico\t1\nLOS RÍOS\tAtractivo Turistico\t1\nNAPO\tPuerto\t1\nAZUAY\tRepresa\t1\nCHIMBORAZO\tReserva\t1\nCARCHI\tReserva\t1\nCARCHI\tReserva Biantropológica\t1\nCOTOPAXI\tReserva Ecologica\t1\nESMERALDAS\tReserva Ecologica\t1\nIMBABURA\tReserva Ecologica\t1\nGUAYAS\tReserva Ecologica\t1\nSUCUMBÍOS\tReserva Faunistica\t1\nAZUAY\tRio\t1\nMANABÍ\tAtractivo Turistico\t1\nORELLANA\tRio\t1\nSUCUMBÍOS\tRio\t1\nZAMORA CHINCHIPE\tRio\t1\nCARCHI\tSantuario Nacional\t1\nCOTOPAXI\tSantuario Nacional\t1\nLOJA\tSanturario Nacional\t1\nPICHINCHA\tSelva\t1\nCHIMBORAZO\tVolcan\t1\nCARCHI\tVolcan\t1\nLOS RÍOS\tZoologico\t1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1658450710037_604455061",
+      "id": "paragraph_1658450710037_604455061",
+      "dateCreated": "2022-07-22 00:45:10.037",
+      "dateStarted": "2022-07-29 22:44:10.913",
+      "dateFinished": "2022-07-29 22:44:12.054",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Cantidad de lugares turísticos por zona de planificación y tipo",
+      "text": "%mysql\nSELECT concat(\"Zona de planificación \", pr.zona) \"Zona\", t.nombre \"Tipos de lugares turísticos\", count(*) \"Total de Lugares Turísticos\" FROM lugarturistico l\nINNER JOIN Canton ca ON l.codCanton \u003d ca.codCanton\nINNER JOIN Provincia pr ON pr.codProvincia \u003d ca.codProvincia\nINNER JOIN tipolugarturistico t ON t.codigo \u003d l.tipo\nGROUP BY pr.zona, t.nombre\nORDER BY pr.zona;",
+      "user": "anonymous",
+      "dateUpdated": "2022-07-31 21:23:19.003",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 414.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "zona": "string",
+                      "Tipos de lugares turísticos": "string",
+                      "Total de Lugares Turísticos": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default",
+                  "stacked": false
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Zona",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [
+                {
+                  "name": "Tipos de lugares turísticos",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ],
+              "values": [
+                {
+                  "name": "Total de Lugares Turísticos",
+                  "index": 2.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Zona\tTipos de lugares turísticos\tTotal de Lugares Turísticos\nZona de planificación 1\tAtractivo Turistico\t3\nZona de planificación 1\tCementerio\t1\nZona de planificación 1\tLago\t1\nZona de planificación 1\tLaguna\t5\nZona de planificación 1\tParque Nacional\t1\nZona de planificación 1\tPlaya\t2\nZona de planificación 1\tReserva\t1\nZona de planificación 1\tReserva Biantropológica\t1\nZona de planificación 1\tReserva Ecologica\t2\nZona de planificación 1\tReserva Faunistica\t1\nZona de planificación 1\tRio\t1\nZona de planificación 1\tSantuario Nacional\t1\nZona de planificación 1\tVolcan\t1\nZona de planificación 2\tAtractivo Turistico\t4\nZona de planificación 2\tCascada\t3\nZona de planificación 2\tCaverna\t1\nZona de planificación 2\tMuseo\t1\nZona de planificación 2\tParque Nacional\t2\nZona de planificación 2\tPuerto\t1\nZona de planificación 2\tRio\t1\nZona de planificación 2\tSelva\t1\nZona de planificación 3\tAtractivo Turistico\t4\nZona de planificación 3\tBalneario\t1\nZona de planificación 3\tCasacada\t1\nZona de planificación 3\tIglesia\t2\nZona de planificación 3\tLaguna\t4\nZona de planificación 3\tMontaña\t2\nZona de planificación 3\tParque\t1\nZona de planificación 3\tParque Acuatico\t1\nZona de planificación 3\tParque Nacional\t1\nZona de planificación 3\tReserva\t1\nZona de planificación 3\tReserva Ecologica\t1\nZona de planificación 3\tSantuario Nacional\t1\nZona de planificación 3\tVolcan\t1\nZona de planificación 4\tAtractivo Turistico\t3\nZona de planificación 4\tBosque\t1\nZona de planificación 4\tParque\t2\nZona de planificación 4\tPlaya\t3\nZona de planificación 5\tAcuario\t1\nZona de planificación 5\tAtractivo Turistico\t2\nZona de planificación 5\tIsla\t5\nZona de planificación 5\tMuseo\t2\nZona de planificación 5\tParque\t2\nZona de planificación 5\tPlaya\t4\nZona de planificación 5\tReserva Ecologica\t1\nZona de planificación 5\tZoologico\t1\nZona de planificación 6\tBalneario\t1\nZona de planificación 6\tCasacada\t1\nZona de planificación 6\tCascada\t1\nZona de planificación 6\tComplejo Arqueologico \t1\nZona de planificación 6\tCueva\t2\nZona de planificación 6\tIglesia\t2\nZona de planificación 6\tLaguna\t1\nZona de planificación 6\tMuseo\t1\nZona de planificación 6\tParque\t2\nZona de planificación 6\tRepresa\t1\nZona de planificación 6\tRio\t3\nZona de planificación 7\tArchipielago\t1\nZona de planificación 7\tAtractivo Turistico\t3\nZona de planificación 7\tBalneario\t1\nZona de planificación 7\tCascada\t2\nZona de planificación 7\tCerro\t1\nZona de planificación 7\tIglesia\t1\nZona de planificación 7\tIsla\t1\nZona de planificación 7\tParque\t2\nZona de planificación 7\tParque Nacional\t1\nZona de planificación 7\tRio\t1\nZona de planificación 7\tSanturario Nacional\t1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1659316981650_571724846",
+      "id": "paragraph_1659316981650_571724846",
+      "dateCreated": "2022-07-31 20:23:01.650",
+      "dateStarted": "2022-07-31 20:27:46.008",
+      "dateFinished": "2022-07-31 20:27:46.401",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Cantidad de lugares turísticos por región y tipo",
+      "text": "%mysql\nSELECT concat(\n            IF(pr.nombre IN(\"EL ORO\", \"ESMERALDAS\", \"GUAYAS\", \"LOS RÍOS\", \"MANABÍ\", \"SANTA ELENA\"), \"COSTA\", \"\"),\n            IF(pr.nombre IN(\"AZUAY\", \"BOLIVAR\",\"CARCHI\", \"CAÑAR\", \"CHIMBORAZO\", \"COTOPAXI\", \"IMBABURA\", \"LOJA\", \"PICHINCHA\", \"SANTO DOMINGO DE LOS TSÁCHILAS\", \"TUNGURAHUA\"), \"SIERRA\",\"\"),\n            IF(pr.nombre IN(\"MORONA SANTIAGO\", \"NAPO\", \"ORELLANA\", \"PASTAZA\", \"SUCUMBÍOS\", \"ZAMORA CHINCHIPE\"), \"ORIENTE\", \"\"),\n            IF(pr.nombre \u003d \"GALÁPAGOS\", \"INSULAR\", \"\")\n            ) Region, t.nombre \"Tipos de lugares turísticos\", count(*) \"Total de Lugares Turísticos\"\n    FROM lugarturistico l\nINNER JOIN Canton ca ON l.codCanton \u003d ca.codCanton\nINNER JOIN Provincia pr ON pr.codProvincia \u003d ca.codProvincia\nINNER JOIN tipolugarturistico t ON t.codigo \u003d l.tipo\nGROUP BY Region, t.nombre;",
+      "user": "anonymous",
+      "dateUpdated": "2022-07-31 21:02:46.535",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 387.516,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Region": "string",
+                      "Tipos de lugares turísticos": "string",
+                      "Total de Lugares Turísticos": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default",
+                  "stacked": false
+                },
+                "pieChart": {},
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Region",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [
+                {
+                  "name": "Tipos de lugares turísticos",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ],
+              "values": [
+                {
+                  "name": "Total de Lugares Turísticos",
+                  "index": 2.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Region\tTipos de lugares turísticos\tTotal de Lugares Turísticos\nCOSTA\tAcuario\t1\nCOSTA\tArchipielago\t1\nSIERRA\tAtractivo Turistico\t12\nCOSTA\tAtractivo Turistico\t4\nORIENTE\tAtractivo Turistico\t3\nCOSTA\tBalneario\t1\nORIENTE\tBalneario\t1\nSIERRA\tBalneario\t1\nSIERRA\tBosque\t1\nSIERRA\tCasacada\t1\nORIENTE\tCasacada\t1\nORIENTE\tCascada\t5\nSIERRA\tCascada\t1\nORIENTE\tCaverna\t1\nSIERRA\tCementerio\t1\nCOSTA\tCerro\t1\nSIERRA\tComplejo Arqueologico \t1\nORIENTE\tCueva\t2\nSIERRA\tIglesia\t5\nCOSTA\tIsla\t1\nINSULAR\tIsla\t5\nCOSTA\tLago\t1\nSIERRA\tLaguna\t8\nORIENTE\tLaguna\t2\nSIERRA\tMontaña\t2\nSIERRA\tMuseo\t1\nCOSTA\tMuseo\t2\nORIENTE\tMuseo\t1\nSIERRA\tParque\t6\nCOSTA\tParque\t3\nORIENTE\tParque Acuatico\t1\nSIERRA\tParque Nacional\t3\nORIENTE\tParque Nacional\t2\nCOSTA\tPlaya\t9\nORIENTE\tPuerto\t1\nSIERRA\tRepresa\t1\nSIERRA\tReserva\t2\nSIERRA\tReserva Biantropológica\t1\nSIERRA\tReserva Ecologica\t2\nCOSTA\tReserva Ecologica\t2\nORIENTE\tReserva Faunistica\t1\nSIERRA\tRio\t1\nORIENTE\tRio\t5\nSIERRA\tSantuario Nacional\t2\nSIERRA\tSanturario Nacional\t1\nSIERRA\tSelva\t1\nSIERRA\tVolcan\t2\nCOSTA\tZoologico\t1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1659317301392_1939930534",
+      "id": "paragraph_1659317301392_1939930534",
+      "dateCreated": "2022-07-31 20:28:21.392",
+      "dateStarted": "2022-07-31 21:02:14.591",
+      "dateFinished": "2022-07-31 21:02:14.624",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Cantidad de lugares turísticos por tipo",
+      "text": "%mysql\nSELECT t.nombre \"Tipos de lugares turísticos\", count(*) \"Total\" FROM lugarturistico l\nINNER JOIN tipolugarturistico t ON t.codigo \u003d l.tipo\nGROUP BY t.nombre\nORDER BY count(*) DESC;",
+      "user": "anonymous",
+      "dateUpdated": "2022-07-31 21:03:32.059",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Tipos de lugares turísticos": "string",
+                      "Total": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Tipos de lugares turísticos",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "Total",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Tipos de lugares turísticos\tTotal\nAtractivo Turistico\t19\nLaguna\t10\nParque\t9\nPlaya\t9\nCascada\t6\nIsla\t6\nRio\t6\nIglesia\t5\nParque Nacional\t5\nMuseo\t4\nReserva Ecologica\t4\nBalneario\t3\nCueva\t2\nCasacada\t2\nMontaña\t2\nReserva\t2\nSantuario Nacional\t2\nVolcan\t2\nArchipielago\t1\nParque Acuatico\t1\nBosque\t1\nCaverna\t1\nPuerto\t1\nRepresa\t1\nCementerio\t1\nReserva Biantropológica\t1\nCerro\t1\nReserva Faunistica\t1\nComplejo Arqueologico \t1\nLago\t1\nSanturario Nacional\t1\nSelva\t1\nAcuario\t1\nZoologico\t1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1658451131347_1443421024",
+      "id": "paragraph_1658451131347_1443421024",
+      "dateCreated": "2022-07-22 00:52:11.348",
+      "dateStarted": "2022-07-26 11:13:04.138",
+      "dateFinished": "2022-07-26 11:13:04.172",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Mapa de los lugares turísticos",
+      "text": "%mysql\nSELECT nombre, concat(\u0027POINT(\u0027,longitud, \u0027 \u0027,latitud,\u0027)\u0027) AS geo FROM lugarturistico",
+      "user": "anonymous",
+      "dateUpdated": "2022-07-31 21:26:31.244",
+      "progress": 0,
+      "config": {
+        "colWidth": 11.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "geospark-zeppelin",
+              "height": 693.688,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "nombre": "string",
+                      "concat(\u0027POINT(\u0027,longitud, \u0027, \u0027,latitud,\u0027)\u0027)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "geospark-zeppelin": {
+                  "info": {
+                    "name": "nombre",
+                    "index": 0.0,
+                    "aggr": "sum"
+                  },
+                  "geometry": {
+                    "name": "geo",
+                    "index": 1.0,
+                    "aggr": "sum"
+                  }
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "nombre",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "geo",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "nombre\tgeo\nRío Santa Bárbara\tPOINT(-78.7754714683047 -2.89575639641765)\nRepresa de Paute\tPOINT(-78.558333 -2.586111)\nEl Turi\tPOINT(-79.0103607 -2.9223567)\nCascada Irha\tPOINT(-79.1650242304323 -3.13045725458876)\nParque Nacional Cajas\tPOINT(-79.2537609 -2.8487368)\nReserva faunística el Chimborazo\tPOINT(-78.8609122 -1.51123)\nComplejo turístico las cochas\tPOINT(-79.03412 -1.48705)\nSantuario De La Virgen del Huayco\tPOINT(-79.0607285 -1.6700716)\nCuevas de Tiagua\tPOINT(-79.0176632757216 -1.40250040914799)\nVolcan Carihuairazo\tPOINT(-78.754549 -1.4043069)\nComplejo turístico Ingapirca\tPOINT(-78.8714679 -2.548985)\nLagunas de culebrillas\tPOINT(-78.8597222 -2.4230556)\nMuseo de Guantug\tPOINT(-78.9442 -2.555)\nCatedral de Azogues\tPOINT(-78.8472003 -2.7381951)\nCementerio de Tulcán\tPOINT(-77.7148041 0.8200078)\nReserva Ecológica El Ángel\tPOINT(-77.73217 0.82152)\nGruta De La Paz\tPOINT(-77.842803 0.5004223)\nLagunas Verdes\tPOINT(-77.9357521 0.8150608)\nReserva Awa\tPOINT(-78.4524591 1.0935308)\nIglesia de Balbanera\tPOINT(-78.7625863 -1.7234848)\nLaguna Del Atillo\tPOINT(-78.5291706 -2.196173)\nLaguna de Colta\tPOINT(-78.7558333 -1.7375)\nLa Nariz Del Diablo\tPOINT(-78.8779638 -2.2437094)\nLaguna de Azogoche\tPOINT(-78.5916866 -2.2518863)\nParque Nacional De Cotopaxi\tPOINT(-78.4297187 -0.7007416)\nLaguna De Quilatoa\tPOINT(-78.9033627 -0.8583134)\nParque Nacional Ilinizas\tPOINT(-79.0645056 -0.7022878)\nSantuario De Cuicuno\tPOINT(-78.6684971 -0.8035306)\nArchipiélago de Jambelí\tPOINT(-80.1108 -3.36556)\nBalneario La Chocha\tPOINT(-79.7215175 -3.3228304)\nIsla Santa Clara\tPOINT(-80.4342251 -3.1713787)\nCerro Dos Arcos\tPOINT(-79.469444 -3.564167)\nCantón Chilla\tPOINT(-79.5772008 -3.4576431)\nPlaya De Oro\tPOINT(-78.801299 0.865753)\nReserva Ecológica Cayambe Coca\tPOINT(-78.1479586 -0.3253796)\nReserva Ecológica Cotacachi Cayapas\tPOINT(-78.683333 0.583333)\nLago De Muisne\tPOINT(-80.0183 0.6067)\nPlaya Las Peñas\tPOINT(-79.157314 1.086367)\nIsla Santa Cruz\tPOINT(-90.3371889 -0.6393592)\nIsla Isabela\tPOINT(-91.135302 -0.8292374)\nIsla Bartolomé\tPOINT(-90.550602 -0.2842964)\nIsla Fernandina\tPOINT(-91.4821482 -0.4123801)\nIsla San Cristóbal\tPOINT(-89.436391 -0.8674715)\nEl Faro\tPOINT(-79.8753664 -2.1810317)\nParque Histórico De Guayaquil\tPOINT(-79.8700969 -2.1451609)\nHacienda Jambelí\tPOINT(-79.69179 -2.73318)\nMalecón 2000\tPOINT(-79.8797778 -2.1937369)\nMuseo Histórico De Abdón Calderón\tPOINT(-79.8872573 -2.2153454)\nOtavalo\tPOINT(-78.2610672 0.2343005)\nLago De San Pablo\tPOINT(-78.219132 0.2059669)\nYahuarcocha\tPOINT(-78.1005579 0.3719409)\nIbarra\tPOINT(-78.1222336 0.3391763)\nValle Del Chota\tPOINT(-78.066667 0.466667)\nBasílica Del Cisne\tPOINT(-79.426496 -3.851045)\nParque Podocarpus\tPOINT(-79 -4.283333)\nVilcabamba\tPOINT(-79.2253776 -4.2623285)\nIglesia Catedral\tPOINT(-79.2010967 -3.9964969)\nPlaza De La Independencia\tPOINT(-79.2013171 -4.00156)\nParque Recreacional Jipiro\tPOINT(-79.2035207 -3.9720197)\nCasa De Olmedo\tPOINT(-79.54368 -1.80079)\nPlayas Del Salto\tPOINT(-79.5418525070463 -1.79902059334948)\nZoo el Pantanal\tPOINT(-79.9648543 -2.0036723)\nPuerto López\tPOINT(-80.8045568 -1.5539322)\nParque Nacional Machalilla\tPOINT(-80.715857 -1.5202275)\nPortoviejo\tPOINT(-80.4524903 -1.054723)\nAyampe\tPOINT(-80.803711 -1.679507)\nPlayas Del Murciélago\tPOINT(-80.7330658 -0.9399588)\nCascada Lucy\tPOINT(-77.8333 -1.93333)\nRio Morona\tPOINT(-77.6835661 -2.8779359)\nValle Del Rio Upano\tPOINT(-78.2034128 -2.3916143)\nCuevas Los Tayos\tPOINT(-77.792778 -1.933333)\nCuevas De Loras Y Golondrinas\tPOINT(-78.0308634061358 -3.04007768163541)\nTena\tPOINT(-77.8136035 -0.9962972)\nParque Nacional Archidona\tPOINT(-77.806994 -0.9088177)\nCascada San Rafael\tPOINT(-77.5807714 -0.1019968)\nPuerto Misahuallí\tPOINT(-77.6670608 -1.0348151)\nCavernas Del Jumandy\tPOINT(-77.7919361 -0.8753438)\nParque Nacional Yasuní\tPOINT(-75.8069082 -1.1006555)\nRio Napo\tPOINT(-75.6964405 -0.6701038)\nCascada La Belleza\tPOINT(-77.07784 -0.83399)\nMuseo Cicame\tPOINT(-76.618645 -0.4411355)\nParque Acuático Montero Puyo\tPOINT(-78.0047258 -1.487986)\nCascada Hola Vida\tPOINT(-77.909518 -1.628396)\nZoocriadero De Fátima\tPOINT(-77.9833 -1.43333)\nDique De Mera\tPOINT(-78.1052137 -1.4560321)\nParque Real\tPOINT(-77.9860187 -1.4950378)\nCentro Histórico De Quito\tPOINT(-78.5135489 -0.2188216)\nMital Del Mundo\tPOINT(-78.4548493 -0.0027576)\nParque Nacional Ilinizas\tPOINT(-79.0645056 -0.7022878)\nCascada Salto Del Tigre\tPOINT(-79.01403 0.23219)\nFuentes De Tesalia\tPOINT(-78.540381 -0.4998642)\nMuseo Los Amantes De Sampa\tPOINT(-80.8674806 -2.2335211)\nSalinas\tPOINT(-80.9584665 -2.2233578)\nMontañita\tPOINT(-80.7529731 -1.8268465)\nPuerto De Carnero\tPOINT(-80.9612205 -2.273684)\nAcuario De Valdivia\tPOINT(-80.9612205 -2.27368)\nSanto Domingo\tPOINT(-79.1774268 -0.2389045)\nParque Zacay\tPOINT(-79.1688151 -0.2541717)\nComplejo Turistico Rio Cristal\tPOINT(-79.2773867 -1.7787055)\nBosque La Perla\tPOINT(-79.3866092 -0.014502)\nReserva Faunística Cuyabeno\tPOINT(-75.7531906 -0.2713055)\nLaguna Delfincocha\tPOINT(-76.2007467965212 0.0204397712176593)\nRio Aguarico\tPOINT(-76.3511371 -0.3715772)\nLaguna Grande\tPOINT(-79.2607628 -0.0554326)\nSelva Virgen\tPOINT(-79.1838135 0.1113196)\nBaños De Agua Santa\tPOINT(-78.4268758 -1.3928344)\nParque La Familia En Ambato\tPOINT(-78.6633375 -1.2438848)\nCasa De Montalvo En Ambato\tPOINT(-78.7311897 -1.2437069)\nLa Cordillera de los Llangantes\tPOINT(-78.3613482 -1.1945173)\nEl Cariguairazo\tPOINT(-78.7567377 -1.4043015)\nRio Bomboscaro\tPOINT(-78.948623 -4.0620941)\nCascada La Chismosa\tPOINT(-78.96511 -4.11432)\nCascada El Oso\tPOINT(-79.98341 -3.67503)\nEl Reloj Las Grande Del Mundo\tPOINT(-78.9528294532136 -4.06870006606867)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1658451584109_1434650972",
+      "id": "paragraph_1658451584109_1434650972",
+      "dateCreated": "2022-07-22 00:59:44.109",
+      "dateStarted": "2022-07-31 21:26:31.252",
+      "dateFinished": "2022-07-31 21:26:31.288",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Mapa de las principales cantones del Ecuador",
+      "text": "%mysql\nSELECT nombre, concat(\u0027POINT(\u0027,longitud, \u0027 \u0027,latitud,\u0027)\u0027) AS geo FROM Canton\nWHERE longitud IS NOT NULL;",
+      "user": "anonymous",
+      "dateUpdated": "2022-07-31 21:26:26.775",
+      "progress": 0,
+      "config": {
+        "colWidth": 11.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "geospark-zeppelin",
+              "height": 738.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "nombre": "string",
+                      "geo": "string"
+                    },
+                    "updated": true
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "geospark-zeppelin": {
+                  "geometry": {
+                    "name": "geo",
+                    "index": 1.0,
+                    "aggr": "sum"
+                  },
+                  "info": {
+                    "name": "nombre",
+                    "index": 0.0,
+                    "aggr": "sum"
+                  }
+                }
+              }
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "nombre\tgeo\nCUENCA\tPOINT(-79.0045 -2.8974)\nGUALACEO\tPOINT(-78.7719 -2.8774)\nGUARANDA\tPOINT(-79.0031 -1.6056)\nAZOGUES\tPOINT(-78.8333 -2.7333)\nLA TRONCAL\tPOINT(-79.3389 -2.4278)\nTULCÁN\tPOINT(-77.7186 0.8117)\nMONTÚFAR\tPOINT(-77.84 0.61)\nLATACUNGA\tPOINT(-78.6167 -0.9333)\nLA MANÁ\tPOINT(-79.2347 -0.9417)\nSALCEDO\tPOINT(-78.5833 -1.05)\nRIOBAMBA\tPOINT(-78.6483 -1.6743)\nALAUSÍ\tPOINT(-78.85 -2.19)\nMACHALA\tPOINT(-79.9667 -3.2667)\nHUAQUILLAS\tPOINT(-80.2317 -3.4803)\nPASAJE\tPOINT(-79.8049 -3.3269)\nPIÑAS\tPOINT(-79.6806 -3.6806)\nSANTA ROSA\tPOINT(-79.9617 -3.4522)\nZARUMA\tPOINT(-79.610525 -3.692802)\nESMERALDAS\tPOINT(-79.6667 0.95)\nELOY ALFARO\tPOINT(-78.9855 1.2671)\nMUISNE\tPOINT(-80.02 0.61)\nQUININDÉ\tPOINT(-79.4689 0.3272)\nATACAMES\tPOINT(-79.8333 0.8667)\nLA CONCORDIA\tPOINT(-79.3958 0.0069)\nGUAYAQUIL\tPOINT(-79.8833 -2.1833)\nBALZAR\tPOINT(-79.9 -1.36)\nDAULE\tPOINT(-79.9833 -1.8667)\nDURÁN\tPOINT(-79.8311 -2.1733)\nEL EMPALME\tPOINT(-79.6383 -1.0439)\nMILAGRO\tPOINT(-79.5872 -2.1347)\nNARANJAL\tPOINT(-79.6183 -2.6736)\nNARANJITO\tPOINT(-79.4653 -2.1667)\nPEDRO CARBO\tPOINT(-80.2333 -1.8167)\nSAMBORONDÓN\tPOINT(-79.7256 -1.9611)\nSAN JACINTO DE YAGUACHI\tPOINT(-79.69 -2.12)\nLOMAS DE SARGENTILLO\tPOINT(-80.0833 -1.8833)\nIBARRA\tPOINT(-78.13 0.3628)\nANTONIO ANTE\tPOINT(-78.2136 0.3325)\nOTAVALO\tPOINT(-78.2667 0.2333)\nLOJA\tPOINT(-79.205 -3.9906)\nCATAMAYO\tPOINT(-79.35 -3.9833)\nMACARÁ\tPOINT(-79.95 -4.3833)\nBABAHOYO\tPOINT(-79.5167 -1.8167)\nQUEVEDO\tPOINT(-79.45 -1.0333)\nVENTANAS\tPOINT(-79.47 -1.45)\nVÍNCES\tPOINT(-79.7333 -1.55)\nBUENA FE\tPOINT(-79.4907 -0.8932)\nVALENCIA\tPOINT(-79.3531 -0.9525)\nPORTOVIEJO\tPOINT(-80.4544 -1.0544)\nCHONE\tPOINT(-80.1 -0.6833)\nJIPIJAPA\tPOINT(-80.5786 -1.3486)\nJUNÍN\tPOINT(-80.2058 -0.9278)\nMANTA\tPOINT(-80.7162 -0.95)\nMONTECRISTI\tPOINT(-80.6667 -1.05)\nSUCRE\tPOINT(-80.425 -0.6)\nTOSAGUA\tPOINT(-80.2342 -0.7864)\nPEDERNALES\tPOINT(-80.0508 0.0719)\nMORONA\tPOINT(-78.1167 -2.3)\nTENA\tPOINT(-77.8159 -0.989)\nARCHIDONA\tPOINT(-77.7833 -0.9167)\nEL CHACO\tPOINT(-77.8089 -0.3403)\nPASTAZA\tPOINT(-77.987 -1.483)\nQUITO\tPOINT(-78.5097 -0.2186)\nCAYAMBE\tPOINT(-78.1561 0.0439)\nPEDRO VICENTE MALDONADO\tPOINT(-79.0511 0.0853)\nPUERTO QUITO\tPOINT(-79.2531 0.1272)\nAMBATO\tPOINT(-78.6197 -1.2417)\nBAÑOS DE AGUA SANTA\tPOINT(-78.4247 -1.3964)\nSANTIAGO DE PÍLLARO\tPOINT(-78.5333 -1.1667)\nZAMORA\tPOINT(-78.9567 -4.0692)\nSAN CRISTÓBAL\tPOINT(-89.6092 -0.9025)\nISABELA\tPOINT(-90.9639 -0.9444)\nSANTA CRUZ\tPOINT(-90.35 -0.5333)\nLAGO AGRIO\tPOINT(-76.8911 0.0844)\nORELLANA\tPOINT(-76.9842 -0.4625)\nSANTO DOMINGO\tPOINT(-79.1719 -0.2542)\nSANTA ELENA\tPOINT(-80.8583 -2.2267)\nSALINAS\tPOINT(-80.9681 -2.2083)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1658761217628_1392945754",
+      "id": "paragraph_1658761217628_1392945754",
+      "dateCreated": "2022-07-25 15:00:17.629",
+      "dateStarted": "2022-07-31 21:26:26.783",
+      "dateFinished": "2022-07-31 21:26:26.818",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Lista de lugares turísticos",
+      "text": "%mysql\nSELECT l.nombre, t.nombre \"Tipos de lugares turísticos\", l.referencia, pr.nombre, c.nombre FROM lugarturistico l\nINNER JOIN tipolugarturistico t ON t.codigo \u003d l.tipo\nINNER JOIN Canton c ON l.codCanton \u003d c.codCanton\nINNER JOIN Provincia pr ON pr.codProvincia \u003d c.codProvincia;",
+      "user": "anonymous",
+      "dateUpdated": "2022-07-31 21:04:19.038",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "nombre": "string",
+                      "Tipos de lugares turísticos": "string",
+                      "referencia": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "nombre\tTipos de lugares turísticos\treferencia\tnombre\tnombre\nAcuario De Valdivia\tAcuario\tParroquia Manglaralto\tSANTA ELENA\tSALINAS\nArchipiélago de Jambelí\tArchipielago\tnull\tEL ORO\tSANTA ROSA\nComplejo turístico las cochas\tAtractivo Turistico\tVia Guaranda - Guanujo - Las Cochas\tBOLÍVAR\tGUARANDA\nCantón Chilla\tAtractivo Turistico\tnull\tEL ORO\tCHILLA\nEl Faro\tAtractivo Turistico\tnull\tGUAYAS\tGUAYAQUIL\nOtavalo\tAtractivo Turistico\tnull\tIMBABURA\tOTAVALO\nIbarra\tAtractivo Turistico\tnull\tIMBABURA\tIBARRA\nValle Del Chota\tAtractivo Turistico\tA 35 Km. de Ibarra\tIMBABURA\tIBARRA\nVilcabamba\tAtractivo Turistico\tnull\tLOJA\tLOJA\nCasa De Olmedo\tAtractivo Turistico\tnull\tLOS RÍOS\tBABAHOYO\nPortoviejo\tAtractivo Turistico\tnull\tMANABÍ\tPORTOVIEJO\nTena\tAtractivo Turistico\tnull\tNAPO\tTENA\nZoocriadero De Fátima\tAtractivo Turistico\tSe ubica en el Km 7 vía Puyo - Tena\tPASTAZA\tPASTAZA\nCentro Histórico De Quito\tAtractivo Turistico\tnull\tPICHINCHA\tQUITO\nMital Del Mundo\tAtractivo Turistico\tnull\tPICHINCHA\tQUITO\nFuentes De Tesalia\tAtractivo Turistico\tnull\tPICHINCHA\tMEJÍA\nSanto Domingo\tAtractivo Turistico\tnull\tSANTO DOMINGO DE LOS TSÁCHILAS\tSANTO DOMINGO\nComplejo Turistico Rio Cristal\tAtractivo Turistico\tA 35 kilómetros de Santo Domingo\tSANTO DOMINGO DE LOS TSÁCHILAS\tSANTO DOMINGO\nCasa De Montalvo En Ambato\tAtractivo Turistico\tnull\tTUNGURAHUA\tAMBATO\nLa Cordillera de los Llangantes\tAtractivo Turistico\tSe encuentra ubicado en la parroquia Río Negro\tTUNGURAHUA\tBAÑOS DE AGUA SANTA\nEl Reloj Las Grande Del Mundo\tAtractivo Turistico\tnull\tZAMORA CHINCHIPE\tZAMORA\nBalneario La Chocha\tBalneario\tnull\tEL ORO\tPASAJE\nDique De Mera\tBalneario\tnull\tPASTAZA\tMERA\nBaños De Agua Santa\tBalneario\tnull\tAZUAY\tCUENCA\nBosque La Perla\tBosque\tA 40 km. de Santo Domingo de los Tsáchilas, en la vía La Concordia - Esmeraldas.\tSANTO DOMINGO DE LOS TSÁCHILAS\tSANTO DOMINGO\nCascada Irha\tCasacada\tSe encuentra ubicado a 5 km del cantón Girón está ubicado a 45 kilómetros de Cuenca\tAZUAY\tCUENCA\nCascada Hola Vida\tCasacada\tVía a Macas, desvío a la derecha sector Nuevo Mundo.\tPASTAZA\tPASTAZA\nCascada Lucy\tCascada\tnull\tMORONA SANTIAGO\tHUAMBOYA\nCascada San Rafael\tCascada\t30 km de la ciudad de Tena\tNAPO\tTENA\nCascada La Belleza\tCascada\tnull\tORELLANA\tORELLANA\nCascada Salto Del Tigre\tCascada\tnull\tPICHINCHA\tPEDRO VICENTE MALDONADO\nCascada La Chismosa\tCascada\tnull\tZAMORA CHINCHIPE\tZAMORA\nCascada El Oso\tCascada\tnull\tZAMORA CHINCHIPE\tZAMORA\nCavernas Del Jumandy\tCaverna\tnull\tNAPO\tARCHIDONA\nCementerio de Tulcán\tCementerio\tnull\tCARCHI\tTULCÁN\nCerro Dos Arcos\tCerro\tParroquia Manú\tEL ORO\tZARUMA\nComplejo turístico Ingapirca\tComplejo Arqueologico \tA 16km de la ciudad de Cañar\tCAÑAR\tCAÑAR\nCuevas Los Tayos\tCueva\tnull\tMORONA SANTIAGO\tLIMÓN INDANZA\nCuevas De Loras Y Golondrinas\tCueva\tA Unos 3 Km En El Cantón De Tiwintza\tMORONA SANTIAGO\tTIWINTZA\nEl Turi\tIglesia\tnull\tAZUAY\tCUENCA\nSantuario De La Virgen del Huayco\tIglesia\tnull\tBOLÍVAR\tCHIMBO\nCatedral de Azogues\tIglesia\tnull\tCAÑAR\tAZOGUES\nIglesia de Balbanera\tIglesia\tColta, A 8 Km de Riobamba.\tCHIMBORAZO\tCOLTA\nIglesia Catedral\tIglesia\tnull\tLOJA\tLOJA\nIsla Santa Clara\tIsla\tA 43 kilómetros al oeste de Puerto Bolívar\tEL ORO\tMACHALA\nIsla Santa Cruz\tIsla\tnull\tGALÁPAGOS\tSANTA CRUZ\nIsla Isabela\tIsla\tnull\tGALÁPAGOS\tISABELA\nIsla Bartolomé\tIsla\tnull\tGALÁPAGOS\tSANTA CRUZ\nIsla Fernandina\tIsla\tnull\tGALÁPAGOS\tISABELA\nIsla San Cristóbal\tIsla\tnull\tGALÁPAGOS\tSAN CRISTÓBAL\nLago De Muisne\tLago\tnull\tESMERALDAS\tMUISNE\nLagunas de culebrillas\tLaguna\tnull\tCAÑAR\tCAÑAR\nLagunas Verdes\tLaguna\tA 40 kilómetros de Tulcán\tCARCHI\tTULCÁN\nLaguna Del Atillo\tLaguna\tCantón Guamote, A 90 km de Riobamba\tCHIMBORAZO\tGUAMOTE\nLaguna de Colta\tLaguna\tA 20 km. de la ciudad de Riobamba y a 3 km. de la cabecera cantonal Cajabamba\tCHIMBORAZO\tRIOBAMBA\nLaguna de Azogoche\tLaguna\tEn Alausí, a 90 km de Riobamba.\tCHIMBORAZO\tALAUSÍ\nLaguna De Quilatoa\tLaguna\tA 66 kilómetros al sur de la ciudad de Latacunga,\tCOTOPAXI\tLATACUNGA\nLago De San Pablo\tLaguna\tnull\tIMBABURA\tIBARRA\nYahuarcocha\tLaguna\tParroquia La Dolorosa del Priorato\tIMBABURA\tIBARRA\nLaguna Delfincocha\tLaguna\tDentro de la reserva Cuyabeno\tSUCUMBÍOS\tCUYABENO\nLaguna Grande\tLaguna\tSe encuentra ubicado en la parroquia Tarapoa\tSUCUMBÍOS\tCUYABENO\nCuevas de Tiagua\tMontaña\tLas Cuevas de Tiagua se encuentran a 40 minutos de la parroquia Salinas,Guaranda\tBOLÍVAR\tGUARANDA\nLa Nariz Del Diablo\tMontaña\tnull\tCHIMBORAZO\tALAUSÍ\nMuseo de Guantug\tMuseo\tnull\tCAÑAR\tCAÑAR\nMuseo Histórico De Abdón Calderón\tMuseo\tnull\tGUAYAS\tGUAYAQUIL\nMuseo Cicame\tMuseo\tA 50 kms. abajo de Coca o Francisco de Orellana\tORELLANA\tORELLANA\nMuseo Los Amantes De Sampa\tMuseo\tAl sur este de la ciudad de Santa Elena\tSANTA ELENA\tSANTA ELENA\nParque Nacional Cajas\tParque\tnull\tAZUAY\tCUENCA\nParque Histórico De Guayaquil\tParque\tnull\tGUAYAS\tGUAYAQUIL\nMalecón 2000\tParque\tnull\tGUAYAS\tGUAYAQUIL\nPlaza De La Independencia\tParque\tnull\tLOJA\tLOJA\nParque Recreacional Jipiro\tParque\tnull\tLOJA\tLOJA\nParque Nacional Machalilla\tParque\tnull\tMANABÍ\tPUERTO LÓPEZ\nParque Real\tParque\tnull\tAZUAY\tCUENCA\nParque Zacay\tParque\tnull\tSANTO DOMINGO DE LOS TSÁCHILAS\tSANTO DOMINGO\nParque La Familia En Ambato\tParque\tnull\tTUNGURAHUA\tAMBATO\nParque Acuático Montero Puyo\tParque Acuatico\tnull\tPASTAZA\tPASTAZA\nParque Nacional De Cotopaxi\tParque Nacional\tnull\tCOTOPAXI\tLATACUNGA\nParque Podocarpus\tParque Nacional\tnull\tLOJA\tLOJA\nParque Nacional Archidona\tParque Nacional\tnull\tNAPO\tARCHIDONA\nParque Nacional Yasuní\tParque Nacional\tnull\tSUCUMBÍOS\tSUCUMBÍOS\nParque Nacional Ilinizas\tParque Nacional\tParroquia El Chaupi , Machachi.\tPICHINCHA\tMEJÍA\nPlaya De Oro\tPlaya\tnull\tESMERALDAS\tESMERALDAS\nPlaya Las Peñas\tPlaya\tParroquia La Tola, cantón Eloy Alfaro\tESMERALDAS\tELOY ALFARO\nPlayas Del Salto\tPlaya\tnull\tLOS RÍOS\tBABAHOYO\nPuerto López\tPlaya\tnull\tMANABÍ\tPUERTO LÓPEZ\nAyampe\tPlaya\tA 17 Km. al sur de Puerto López\tMANABÍ\tPUERTO LÓPEZ\nPlayas Del Murciélago\tPlaya\tnull\tMANABÍ\tMANTA\nSalinas\tPlaya\tnull\tSANTA ELENA\tSALINAS\nMontañita\tPlaya\tParroquia Manglaralto\tSANTA ELENA\tSALINAS\nPuerto De Carnero\tPlaya\tParroquia José Luis Tamayo\tSANTA ELENA\tSALINAS\nPuerto Misahuallí\tPuerto\t20 km de la ciudad de Tena\tNAPO\tTENA\nRepresa de Paute\tRepresa\tnull\tAZUAY\tCUENCA\nReserva faunística el Chimborazo\tReserva\tnull\tCHIMBORAZO\tRIOBAMBA\nReserva Ecológica El Ángel\tReserva\tnull\tCARCHI\tTULCÁN\nReserva Awa\tReserva Biantropológica\tA 145 km de Tulcán.\tCARCHI\tTULCÁN\nParque Nacional Ilinizas\tReserva Ecologica\tnull\tCOTOPAXI\tLATACUNGA\nReserva Ecológica Cayambe Coca\tReserva Ecologica\tnull\tESMERALDAS\tESMERALDAS\nReserva Ecológica Cotacachi Cayapas\tReserva Ecologica\tParroquia Quiroga\tIMBABURA\tCOTACACHI\nHacienda Jambelí\tReserva Ecologica\tA 16 Km del Cantón Naranjal, en la vía a Machala, exactamente en Balao Chico.\tGUAYAS\tNARANJAL\nReserva Faunística Cuyabeno\tReserva Faunistica\tnull\tSUCUMBÍOS\tCUYABENO\nRío Santa Bárbara\tRio\tSe ubica  en el Cantón de Gulaceo\tAZUAY\tGUALACEO\nRio Morona\tRio\tnull\tMORONA SANTIAGO\tMORONA\nValle Del Rio Upano\tRio\tnull\tMORONA SANTIAGO\tMORONA\nRio Napo\tRio\tnull\tORELLANA\tORELLANA\nRio Aguarico\tRio\tSe encuentra ubicado en la parroquia Tarapoa\tSUCUMBÍOS\tCUYABENO\nRio Bomboscaro\tRio\tnull\tZAMORA CHINCHIPE\tZAMORA\nGruta De La Paz\tSantuario Nacional\tnull\tCARCHI\tMONTÚFAR\nSantuario De Cuicuno\tSantuario Nacional\tnull\tCOTOPAXI\tLATACUNGA\nBasílica Del Cisne\tSanturario Nacional\tParroquia El Cisne\tLOJA\tLOJA\nSelva Virgen\tSelva\tnull\tPICHINCHA\tPUERTO QUITO\nVolcan Carihuairazo\tVolcan\tnull\tCHIMBORAZO\tRIOBAMBA\nEl Cariguairazo\tVolcan\tA sólo 10 km del Chimborazo\tCARCHI\tBOLÍVAR\nZoo el Pantanal\tZoologico\tnull\tLOS RÍOS\tBABAHOYO\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1658762812921_596138763",
+      "id": "paragraph_1658762812921_596138763",
+      "dateCreated": "2022-07-25 15:26:52.921",
+      "dateStarted": "2022-07-26 11:13:04.476",
+      "dateFinished": "2022-07-26 11:13:04.512",
+      "status": "FINISHED"
+    }
+  ],
+  "name": "Proyecto Integrador Practicum 1.2",
+  "id": "2H8SHS2RF",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.10.1",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
