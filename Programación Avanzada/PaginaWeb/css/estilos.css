@@ -25,7 +25,7 @@ main{
 
 .titulo {
     color: #6785e9;
-    font-size: 20px;
+    font-size: 26px;
     text-align: center;
     margin-bottom: 20px;
     align-items: center;
@@ -193,7 +193,7 @@ medidas de graficos
 
 iframe {
     float: right;
-    width: 1050px;
+    width: 900px;
     height: 550px;
 }
 /* iframe
